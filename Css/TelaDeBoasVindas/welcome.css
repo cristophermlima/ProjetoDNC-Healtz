@@ -11,6 +11,7 @@ header {
   height: 9rem;
   background: #033E8C;
   border-radius: 0 0 2.5rem 2.5rem;
+  border-bottom: .5rem solid #ECF4FA;
 }
 
 header img {
