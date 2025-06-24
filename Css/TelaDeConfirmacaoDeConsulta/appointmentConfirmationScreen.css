@@ -1,0 +1,170 @@
+body {
+  font-family: Helvetica, sans-serif;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  height: 9rem;
+  background: #033E8C;
+  border-radius: 0 0 2.5rem 2.5rem;
+  border-bottom: .5rem solid #ECF4FA;
+}
+
+header img {
+  height: 5rem;
+  margin-left: 1rem;
+}
+
+main {
+  margin: 0 7.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #F33E8F;
+  margin: 2rem 0 3rem 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  margin-left: 2rem;
+}
+
+label {
+  font-size: .9rem;
+  font-weight: 400;
+  margin-bottom: .4rem;
+  cursor: pointer;
+}
+
+input {
+  font-size: 1rem;
+  font-weight: 400;
+  height: 3rem;
+  border-radius: .4rem;
+  border: .1rem solid #E2E1E5;
+  padding-left: 1rem;
+  outline: none;
+
+  &::placeholder {
+    color: #D2D2D2;
+  }
+
+  &:focus {
+    border: .1rem solid #033E8C;
+  }
+}
+
+button {
+  text-align: left;
+  font-size: .9rem;
+  height: 3.2rem;
+  width: 50%;
+  border-radius: .4rem;
+  border: .1rem solid #5E5BFF;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0474C4;
+  margin: 5rem 0 1rem 0;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.limiter-container {
+  max-width: 50%;
+  min-width: 12rem;
+}
+
+.button-container {
+  display: flex;
+  margin-top: 2rem;
+
+  & button:first-child {
+    margin-right: .5rem;
+    background: #F33E8F;
+    color: #FFFFFF;
+    margin-right: 2.5rem;
+  }
+
+  & button:last-child {
+    background: #EDC0D5;
+    color: #154E94;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    justify-content: center;
+  }
+
+  header img {
+    margin-left: 0;
+  }
+
+  main {
+    margin: 0 1.5rem;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    text-align: center;
+    align-items: center;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  form div:first-child {
+    width: 20rem;
+  }
+
+  input {
+    text-align: center;
+  }
+
+  .limiter-container {
+    width: 12rem;
+  }
+
+  .button-container button:first-child {
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: 368px) {
+  header img {
+    height: 4rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  form div:first-child {
+    width: 15rem;
+  }
+
+  button {
+    text-align: center;
+    padding: 0;
+  }
+}
