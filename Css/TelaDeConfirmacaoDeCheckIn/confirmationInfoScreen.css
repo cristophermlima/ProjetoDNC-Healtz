@@ -1,0 +1,19 @@
+body {
+  font-family: Helvetica, sans-serif;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  height: 9rem;
+  background: #033E8C;
+  border-radius: 0 0 2.5rem 2.5rem;
+  border-bottom: .5rem solid #ECF4FA;
+}
+header > img {
+  height: 5rem;
+  margin-left: 1rem;
+}
