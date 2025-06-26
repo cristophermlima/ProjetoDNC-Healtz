@@ -25,24 +25,24 @@ article {
 article h1 {
     display: block;
     text-align: center;
-    width: 875px;
-    height: 108px;
-    border-radius: 15px;
+    width: 54.6rem;
+    height: 6.75rem;
+    border-radius: 0.93rem;
     background-color: #033E8C;
-    padding: 18px 40px 18px 41px;
+    padding: 1.12rem 2.5rem 1.12rem 2.56rem;
     font-family: Poppins;
     font-weight: 500;
-    font-size: 48px;
+    font-size: 3rem;
     line-height: 100%;
     letter-spacing: 0%;
     color: #F1F4F6;
     align-content: center;
 }
 article img {
-    width: 160.7px;
-    height: 130px;
-    margin-top: 154px;
-    margin-bottom: 210px;
+    width: 10rem;
+    height: 8.1rem;
+    margin-top: 9.6rem;
+    margin-bottom: 13.1rem;
 }
 footer {
     text-align: center;
@@ -50,4 +50,36 @@ footer {
     font-weight: 600;
     color: #0474C4;
     margin-bottom: .5rem;
+}
+@media (max-width: 768px){
+    header {
+        height: 7.5rem;    
+    }
+    header img {
+        width: 11.2rem;
+        height: 4.3rem;
+        margin-left: 1rem;
+        justify-self: left;
+    }
+    article {
+        justify-content: center;
+    }
+    article h1 {
+        width: 25.6rem;
+        height: 2.5rem;
+        font-size: 1.8rem;
+        margin-top: 0;
+        margin-bottom: 0;
+
+    }
+    article img {
+        width: 7.12rem;
+        height: 5rem;
+        margin-top: 7.5rem;
+        margin-bottom: 7.56rem;
+    }
+    footer {
+        text-align: center;
+        font-size: 1rem;
+    } 
 }
