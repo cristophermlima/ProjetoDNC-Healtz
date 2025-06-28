@@ -101,6 +101,10 @@ footer {
     justify-content: center;
   }
 
+  header img {
+    margin: 0;
+  }
+
   h1 {
     font-size: 4.5rem;
   }
