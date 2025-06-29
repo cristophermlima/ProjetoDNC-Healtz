@@ -6,7 +6,7 @@ const btnBack = document.querySelector('#back');
 
 btnSaveInformation.addEventListener('click', (e) => {
     e.preventDefault();
-    window.location.href = '../../html/FormularioCheckin/form.html';
+    window.location.href = '../../html/TelaDeConfirmacaoDeInformacoes/confirmationInfoScreen.html';
 })
 
 btnBack.addEventListener('click', (e) => {
