@@ -9,7 +9,7 @@ header {
   display: flex;
   align-items: center;
   height: 9rem;
-  background: #033E8C;
+  background: #020E28;
   border-radius: 0 0 2.5rem 2.5rem;
   border-bottom: .5rem solid #ECF4FA;
 }
@@ -59,23 +59,16 @@ button {
   font-weight: 500;
   height: 6.7rem;
   width: 37.5rem;
-  background: #EDC0D5;
+  background: #154E94;
+  color: #FFFFFF;
   border-radius: .8rem;
   border: .2rem solid #F1EEEE;
   margin-bottom: 5rem;
   cursor: pointer;
 
   &:hover {
-    border: .2rem solid #0474C4;
+    border: .2rem solid #020E28;
   }
-}
-
-.btn-1 {
-  color: #033E8C;
-}
-
-.btn-2 {
-  color: #F33E8F;
 }
 
 footer {
