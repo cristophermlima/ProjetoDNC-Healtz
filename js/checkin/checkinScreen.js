@@ -5,5 +5,5 @@ const btnSubmit = document.querySelector('.button-container')
 
 btnSubmit.addEventListener('click', (e) => {
     e.preventDefault() 
-    window.location.href = '../../Html/TelaDeConfirmacaoDeConsulta/appointmentConfirmationScreen.html';
+    window.location.href = '/Html/TelaDeConfirmacaoDeConsulta/appointmentConfirmationScreen.html';
 })

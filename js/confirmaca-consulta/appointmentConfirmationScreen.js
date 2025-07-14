@@ -6,11 +6,11 @@ btnConfirmation.addEventListener('click', (e) => {
     e.preventDefault();
     
 
-    window.location.href = '../../Html/TelaDeConfirmacaoDeCheckin/confirmationCheckIn.html';
+    window.location.href = '/Html/TelaDeConfirmacaoDeCheckin/confirmationCheckIn.html';
 })
 
 btnChangeInformation.addEventListener('click', (e) => {
     e.preventDefault();
     
-    window.location.href = '../../Html/TelaDeCheckin/checkInScreen.html';
+    window.location.href = '/Html/TelaDeCheckin/checkInScreen.html';
 })
