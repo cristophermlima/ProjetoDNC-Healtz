@@ -89,11 +89,11 @@ btnSaveInformation.addEventListener('click', (e) => {
 
   console.log("Cliente salvo no localStorage:", formData);
 
-  window.location.href = '../../html/TelaDeConfirmacaoDeInformacoes/confirmationInfoScreen.html';
+  window.location.href = '../../html/confirmacao-info/confirmationInfoScreen.html';
 });
 
 // btnBack
 btnBack.addEventListener('click', (e) => {
   e.preventDefault();
-  window.location.href = '../../html/telaDeBoasVindas/welcome.html';
+  window.location.href = '../../html/boasvindas/welcome.html';
 });
