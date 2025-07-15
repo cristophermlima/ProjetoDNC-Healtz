@@ -95,5 +95,5 @@ btnSaveInformation.addEventListener('click', (e) => {
 // btnBack
 btnBack.addEventListener('click', (e) => {
   e.preventDefault();
-  window.location.href = 'html/boasvindas/welcome.html';
+  window.location.href = '../../html/boasvindas/welcome.html';
 });
