@@ -1,7 +1,6 @@
 // this file handles the registration screen functionality
 // including form submission and navigation to the check-in screen.
 
-
 const btnSaveInformation = document.querySelector('button[type="submit"]');
 const btnBack = document.querySelector('#back');
 let isValid = true;
@@ -69,7 +68,6 @@ Object.keys(validators).forEach((fieldId) => {
 
 
 btnSaveInformation.addEventListener("click", (e) => {
-  const userData = []
   e.preventDefault();
 
   const formData = getFormData();
