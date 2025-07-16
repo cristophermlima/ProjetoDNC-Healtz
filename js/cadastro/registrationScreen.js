@@ -4,6 +4,7 @@
 
 const btnSaveInformation = document.querySelector('button[type="submit"]');
 const btnBack = document.querySelector('#back');
+let isValid = true;
 
 
 // function to get form Values
@@ -26,70 +27,73 @@ function getFormData(){
     }
 }
 
-// verify if the form is valid
+//Verify if the form is valid
 
-function validateForm(data){
-    const cpfRegex = /^[0-9]{11}$/;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^[0-9]{10,11}$/;
+const validators = {
+  cpf: (value) => value.length === 11 && !isNaN(value),
+  name: (value) => value.length >= 2,
+  age: (value) => {
+    const num = parseInt(value);
+    return !isNaN(num) && num > 0 && num < 120;
+  },
+  email: (value) => {
+    const arroba = value.indexOf("@");
+    const dot = value.lastIndexOf(".");
+    return arroba > 0 && dot > arroba + 1 && dot < value.length - 1;
+  },
+  phone: (value) => value.length >= 10 && value.length <= 11 && !isNaN(value),
+  "zip-code": (value) => value.length === 8 && !isNaN(value),
+  "heath-plan": (value) => value.length > 0,
+  "plan-number": (value) => value.length > 0,
+  address: (value) => value.length > 3,
+  neighborhood: (value) => value.length > 2,
+  complement: (value) => true,
+  uf: (value) => value.length === 2,
+  city: (value) => value.length > 2
+};
 
-    if (!cpfRegex.test(data.cpf)) {
-    alert("CPF inválido. Deve conter exatamente 11 números.");
-    return false;
-  }
+// add event listeners to inputs for validation
+Object.keys(validators).forEach((fieldId) => {
+  const input = document.getElementById(fieldId);
+  if (!input) return
 
-    if (!emailRegex.test(data.email)) {
-    alert("Email inválido.");
-    return false;
-  }
+  input.addEventListener("input", (e) => {
+    const value = input.value.trim();
+    const isValid = validators[fieldId](value);
 
-  if (!phoneRegex.test(data.phone)) {
-    alert("Telefone inválido. Deve conter entre 10 e 11 dígitos numéricos.");
-    return false;
-  }
-
-  return true;
-}
-
-// mask for phone
-document.getElementById("phone").addEventListener("input", (e) => {
-  let value = e.target.value.replace(/\D/g, "");
-
-  if (value.length > 12){
-    value = value.slice(0, 12);
-  } 
-
-  if (value.length <= 11) {
-    e.target.value = value.replace(/(\d{2})(\d{10})/, "($1) $2-$3");
-  } else {
-    e.target.value = value.replace(/(\d{2})(\d{10})(\d{0,4})/, "($1) $2-$3");
-  }
+    input.classList.toggle("valid", isValid);
+    input.classList.toggle("invalid", !isValid);
+  });
 });
 
 
 
-// mask for zip-code
-document.getElementById("zip-code").addEventListener("input", (e) => {
-  let value = e.target.value.replace(/\D/g, "");
-  if (value.length > 8) value = value.slice(0, 8);
-  e.target.value = value.replace(/(\d{9})(\d{0,3})/, "$1-$2");
-});
-
-
-
-// btnSaveInformation
-btnSaveInformation.addEventListener('click', (e) => {
+btnSaveInformation.addEventListener("click", (e) => {
   e.preventDefault();
 
   const formData = getFormData();
+  const inputs = document.querySelectorAll("input");
 
-  if (!validateForm(formData)) return;
+  let allValid = true;
 
-  localStorage.setItem('userData', JSON.stringify(formData));
+  inputs.forEach((input) => {
+    const value = input.value.trim();
 
+    if (value === "" || !input.classList.contains("valid")) {
+      input.classList.remove("valid");
+      input.classList.add("invalid");
+      allValid = false;
+    }
+  });
+
+  if (!allValid) {
+    alert("Por favor, corrija os campos inválidos antes de continuar.");
+    return;
+  }
+
+  localStorage.setItem("userData", JSON.stringify(formData));
   console.log("Cliente salvo no localStorage:", formData);
-
-  window.location.href = '/html/confirmacao-info/confirmationInfoScreen.html';
+  window.location.href = "/html/confirmacao-info/confirmationInfoScreen.html";
 });
 
 // btnBack

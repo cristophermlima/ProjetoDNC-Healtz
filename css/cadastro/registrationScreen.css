@@ -165,6 +165,14 @@ footer {
   max-width: 20%;
 }
 
+.invalid{
+  border: .1rem solid red;
+}
+
+.valid{
+  border: .1rem solid green;
+}
+
 @media (max-width: 1100px) {
   header {
     justify-content: center;
