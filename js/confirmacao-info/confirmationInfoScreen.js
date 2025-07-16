@@ -4,8 +4,14 @@ const changeInfoButton = document.getElementById('changeInformation');
 
 // function to get form Values
 function getAndSetValues() {
-    const userData = JSON.parse(localStorage.getItem('userData'));
-    console.log(userData)
+    const patients = JSON.parse(localStorage.getItem('patients')) || [];
+
+    if (patients.length === 0) {
+        alert("Nenhum paciente encontrado.");
+        return;
+    }
+
+    const lastPatient = patients[patients.length - 1];
 
     const cpf = document.getElementById("cpf");
     const name = document.getElementById("name");
@@ -21,19 +27,19 @@ function getAndSetValues() {
     const uf = document.getElementById("uf");
     const city = document.getElementById("city");
 
-    cpf.value = userData.cpf || '';
-    name.value = userData.name || '';
-    age.value = userData.age || '';
-    healthPlan.value = userData.healthPlan || '';
-    planNumber.value = userData.planNumber || '';
-    email.value = userData.email || '';
-    phone.value = userData.phone || '';
-    zipCode.value = userData.zipCode || '';
-    address.value = userData.address || '';
-    neighborhood.value = userData.neighborhood || '';
-    complement.value = userData.complement || '';
-    uf.value = userData.uf || '';
-    city.value = userData.city || '';
+    cpf.value = lastPatient.cpf || '';
+    name.value = lastPatient.name || '';
+    age.value = lastPatient.age || '';
+    healthPlan.value = lastPatient.healthPlan || '';
+    planNumber.value = lastPatient.planNumber || '';
+    email.value = lastPatient.email || '';
+    phone.value = lastPatient.phone || '';
+    zipCode.value = lastPatient.zipCode || '';
+    address.value = lastPatient.address || '';
+    neighborhood.value = lastPatient.neighborhood || '';
+    complement.value = lastPatient.complement || '';
+    uf.value = lastPatient.uf || '';
+    city.value = lastPatient.city || '';
 }
 
 btnConfirmation.addEventListener('click', (e) => {
