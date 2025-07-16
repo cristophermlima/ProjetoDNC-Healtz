@@ -69,6 +69,7 @@ Object.keys(validators).forEach((fieldId) => {
 
 
 btnSaveInformation.addEventListener("click", (e) => {
+  const userData = []
   e.preventDefault();
 
   const formData = getFormData();
@@ -91,8 +92,12 @@ btnSaveInformation.addEventListener("click", (e) => {
     return;
   }
 
-  localStorage.setItem("userData", JSON.stringify(formData));
-  console.log("Cliente salvo no localStorage:", formData);
+
+  let patients = JSON.parse(localStorage.getItem("patients") || "[]");
+  patients.push(formData);
+  localStorage.setItem("patients", JSON.stringify(patients));
+
+
   window.location.href = "/html/confirmacao-info/confirmationInfoScreen.html";
 });
 
