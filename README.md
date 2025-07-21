@@ -1,19 +1,19 @@
 # ProjetoDNC-Healz
 Projeto check-in Healz
 
-# 🩺 ProjetoDNC - Healtz
+#  ProjetoDNC - Healtz
 
 Sistema web desenvolvido para otimizar o processo de **check-in de pacientes** em ambientes hospitalares e clínicas, com foco em **usabilidade, simplicidade e segurança**.
 
 ---
 
-## 📌 Descrição
+##  Descrição
 
 Perante as solicitações da empresa, foi idealizado um sistema intuitivo e acessível, capaz de atender usuários com pouco domínio tecnológico. O projeto visa proporcionar **facilidade no manuseio** e **clareza nas informações**, mantendo o usuário informado sobre cada etapa do processo.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - Node.js  
 - Express  
@@ -24,7 +24,7 @@ Perante as solicitações da empresa, foi idealizado um sistema intuitivo e aces
 
 ---
 
-## ✅ Funcionalidades
+##  Funcionalidades
 
 1. Tela de boas-vindas
 2. Formulário de cadastro de paciente
@@ -35,7 +35,7 @@ Perante as solicitações da empresa, foi idealizado um sistema intuitivo e aces
 
 ---
 
-## 🛠️ Como executar localmente
+##  Como executar localmente
 
 ### Pré-requisitos:
 
