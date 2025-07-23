@@ -1,34 +1,51 @@
+import { medicos } from "../database/medicos.js";
+const timeleft = document.querySelector('#time');
 
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
 
-    const nome = document.getElementById('doctor').value;
-    const crm = document.getElementById('crm').value;
-    const especialidade = document.getElementById('specialty').value;
+function startTimer(){
+  let timeleftSeconds = 15*60;
+  const interval = setInterval(() => {
+    const minutes = Math.floor(timeleftSeconds / 60);
+    const seconds = timeleftSeconds % 60;
 
-    try {
-      const response = await fetch('http://localhost:3000/api/medicosDB/verificar', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nome, crm, especialidade })
-      });
+    timeleft.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+    timeleftSeconds--
 
-      const data = await response.json();
-
-      if (data.encontrado) {
-        window.location.href = '../../html/confirmacao-checkin/confirmationCheckin.html';
-      } else {
-        alert('Médico não encontrado. Verifique os dados e tente novamente.');
-      }
-    } catch (error) {
-      console.error('Erro na verificação:', error);
-      alert('Erro ao tentar verificar o médico.');
+    if(timeleftSeconds < 0){
+      clearInterval(interval);
+      timeleft.textContent = '00:00';
+      alert('Tempo esgotado! Por favor, tente novamente.');
+      timeleft.textContent = '00:00';
     }
-  });
-});
+  },1000);
+}
 
+const btnSubmit = document.querySelector('button[type="submit"]');
+
+btnSubmit.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const crmCoded = document.querySelector('input[name="crm"]').value;
+
+  if(!crmCoded){
+    alert('Numero Crm Inválido');
+    return;
+  }
+
+
+  const medico = medicos.find((medico) => {
+    return medico.crm === crmCoded;
+  })
+
+  if(!medico){
+    alert('Médico não encontrado');
+    return;
+  } else {
+    alert(`Consulta confirmada com o médico ${medico.name} de especialidade ${medico.speciality}`);
+    window.location.href = '../../html/confirmacao-checkin/confirmationCheckin.html';
+  }
+
+})
+
+window.onload = startTimer;
