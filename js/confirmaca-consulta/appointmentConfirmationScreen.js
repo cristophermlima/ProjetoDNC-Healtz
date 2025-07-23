@@ -1,5 +1,7 @@
 import { medicos } from "../database/medicos.js";
 const timeleft = document.querySelector('#time');
+const btnSubmit = document.querySelector('button[type="submit"]');
+const btnBack = document.querySelector('#changeInformation');
 
 
 
@@ -21,7 +23,7 @@ function startTimer(){
   },1000);
 }
 
-const btnSubmit = document.querySelector('button[type="submit"]');
+
 
 btnSubmit.addEventListener('click', (event) => {
   event.preventDefault();
@@ -46,6 +48,11 @@ btnSubmit.addEventListener('click', (event) => {
     window.location.href = '../../html/confirmacao-checkin/confirmationCheckin.html';
   }
 
+})
+
+btnBack.addEventListener('click', (event) => {
+  event.preventDefault();
+  window.location.href = '../../html/checkin/checkinScreen.html';
 })
 
 window.onload = startTimer;
